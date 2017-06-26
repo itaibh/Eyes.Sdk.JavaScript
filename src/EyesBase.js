@@ -102,10 +102,10 @@
             logger.verbose("notifying event: ", eventName);
             var notificationPromises = [];
             for (var i = 0; i < handlers.length; ++i) {
-                var currentHanlder = handlers[i];
+                var currentHandler = handlers[i];
                 // Call the event with the rest of the (hidden) parameters supplied to this function.
                 var currentPromise =
-                    currentHanlder[eventName].apply(currentHanlder, Array.prototype.slice.call(args, 4))
+                    currentHandler[eventName].apply(currentHandler, Array.prototype.slice.call(args, 4))
                         .then(null, function (err) {
                             if (logger) {
                                 logger.verbose("'" + eventName + "'" + " notification handler returned an error: " + err);
